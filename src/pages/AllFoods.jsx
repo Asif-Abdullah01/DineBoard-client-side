@@ -1,9 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const AllFoods = () => {
+    const [foods, setFoods] = useState([]);
+    const [search, setSearch] = useState('');
+
+
+    useEffect(()=> {
+        
+    })
+
     return (
         <div>
-            all foods here
+            <h2 className='text-center font-bold text-4xl my-4'>DineBoard</h2>
+            <div className="flex items-center justify-center p-4">
+                <div className="flex w-full max-w-lg overflow-hidden border rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
+                    <input
+                        className="w-full px-4 py-2 text-gray-700 placeholder-gray-500 bg-white border-none outline-none focus:ring-0 focus:placeholder-transparent"
+                        type="text"
+                        name="search"
+                        onChange={(e) => setSearch(e.target.value)}
+                        value={search}
+                        placeholder="Enter Job Title"
+                        aria-label="Enter Job Title"
+                    />
+                    <button className="px-6 py-2 text-sm font-medium text-white uppercase transition-colors duration-300 transform bg-yellow-600 hover:bg-yellow-500 focus:bg-yellow-700 focus:outline-none">
+                        Search
+                    </button>
+                </div>
+            </div>
+
         </div>
     );
 };
