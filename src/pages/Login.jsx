@@ -1,20 +1,65 @@
 // import { Link, useLocation, useNavigate } from 'react-router-dom'
 import lottieLogin from '../assets/login.json'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.jpg'
 import Lottie from 'lottie-react'
+import { useContext } from 'react'
+import AuthContext from '../context/AuthContext'
+import { toast } from 'react-toastify'
 
 const Login = () => {
-
+    const { signInUser, signInWithGoogle } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log('login page:',location);
+    const from = location?.state || '/';
 
     // Google Signin
     const handleGoogleSignIn = () => {
-
+        signInWithGoogle()
+            .then(res => {
+                toast.success('Successfully Registered');
+                navigate(from)
+            })
+            .then(err => {
+                toast.error(err.message);
+            })
     }
 
     // Email Password Signin
     const handleSignIn = e => {
         e.preventDefault()
+
+        const form = e.target
+        const email = form.email.value
+        const pass = form.password.value
+
+        if (!/^.{6,}$/.test(pass)) {
+            toast.error('Password length must be at least 6 character.')
+            return;
+        }
+
+        if (!/[A-Z]/.test(pass)) {
+            toast.error('Password must have an Uppercase letter in the password')
+            return;
+        }
+
+
+        if (!/[a-z]/.test(pass)) {
+            toast.error('Password must have a Lowercase letter in the password')
+            return;
+        }
+
+        signInUser(email,pass)
+        .then(result => {
+            toast.success('Successfully Logged in');
+            navigate(from);
+        })
+        .catch(error => {
+            toast.error(error.message);
+        }) 
+
+
 
     }
 
@@ -22,7 +67,7 @@ const Login = () => {
         <div className='flex justify-center items-center min-h-[calc(100vh-306px)] my-12'>
             <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>
                 <div
-                    className='hidden bg-cover bg-center lg:block lg:w-1/2 lg:flex flex-col justify-center items-center'
+                    className='hidden bg-cover bg-center lg:w-1/2 lg:flex flex-col justify-center items-center'
                 >
                     <Lottie animationData={lottieLogin} loop={true}>
 

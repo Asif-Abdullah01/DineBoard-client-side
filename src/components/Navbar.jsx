@@ -1,82 +1,96 @@
+import { useContext } from 'react';
 import logo from '../assets/logo.jpg'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import AuthContext from '../context/AuthContext';
+import { toast } from 'react-toastify';
+
+
 const Navbar = () => {
-//   const { user, logOut } = useContext(AuthContext)
-  return (
-    <div className='navbar bg-base-100 shadow-sm container px-4 mx-auto'>
-      <div className='flex-1'>
-        <Link to='/' className='flex gap-2 items-center'>
-          <img className='w-auto h-16' src={logo} alt='' />
-          <span className='font-bold text-xl'>DineBoard</span>
-        </Link>
-      </div>
-      <div className='flex-none'>
-        <ul className='menu menu-horizontal px-1'>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/foods'>All Foods</Link>
-          </li>
-          <li>
-            <Link to='/gallery'>Gallery</Link>
-          </li>
+    const { user, signOutUser } = useContext(AuthContext);
 
-          {/* {!user && ( */}
-            <li>
-              <Link to='/login'>Login</Link>
-            </li>
-          {/* )} */}
-        </ul>
-
-        {(
-          <div className='dropdown dropdown-end z-50'>
-            <div
-              tabIndex={0}
-              role='button'
-              className='btn btn-ghost btn-circle avatar'
-            >
-              {/* <div title={user?.displayName} className='w-10 rounded-full'> */}
-              <div className='w-10 rounded-full'>
-                <img
-                  referrerPolicy='no-referrer'
-                  alt='User Profile Photo'
-                //   src={user?.photoURL}
-                />
-              </div>
-            </div>
-            <ul
-              tabIndex={0}
-              className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
-            >
-              <li>
-                <Link to='/add-job' className='justify-between'>
-                  Add Job
+    const handleSignOut = () => {
+        signOutUser()
+            .then(() => {
+                toast.success('signed out successfully');
+            })
+            .catch(err => {
+                toast.error('Failed to sign out', err);
+            })
+    }
+    return (
+        <div className='navbar bg-base-100 shadow-sm container px-4 mx-auto'>
+            <div className='flex-1'>
+                <Link to='/' className='flex gap-2 items-center'>
+                    <img className='w-auto h-16' src={logo} alt='' />
+                    <span className='font-bold text-xl'>DineBoard</span>
                 </Link>
-              </li>
-              <li>
-                <Link to='/my-posted-jobs'>My Posted Jobs</Link>
-              </li>
-              <li>
-                <Link to='/my-bids'>My Bids</Link>
-              </li>
-              <li>
-                <Link to='/bid-requests'>Bid Requests</Link>
-              </li>
-              <li className='mt-2'>
-                <button
-                //   onClick={logOut}
-                  className='bg-gray-200 block text-center'
-                >
-                  Logout
-                </button>
-              </li>
-            </ul>
-          </div>
-        )}
-      </div>
-    </div>
-  )
+            </div>
+            <div className='flex-none'>
+                <ul className='menu menu-horizontal px-1'>
+                    <li>
+                        <NavLink className={'font-bold'} to='/'>Home</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className={'font-bold'} to='/foods'>All Foods</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className={'font-bold'} to='/gallery'>Gallery</NavLink>
+                    </li>
+
+                    {
+                        user ? <><button onClick={handleSignOut} className="btn">Logout</button></> : <>
+                            <Link to={'/login'}>
+                                <button className="btn">Login</button>
+                            </Link>
+                        </>
+                    }
+                </ul>
+
+                {user && (
+                    <div className='dropdown dropdown-end z-50'>
+                        <div
+                            tabIndex={0}
+                            role='button'
+                            className='btn btn-ghost btn-circle avatar'
+                        >
+                            <div className='w-10 rounded-full'>
+                                <img
+                                    referrerPolicy='no-referrer'
+                                    alt='User Profile Photo'
+                                  src={user?.photoURL}
+                                />
+                            </div>
+                        </div>
+                        <ul
+                            tabIndex={0}
+                            className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
+                        >
+                            <li>
+                                <Link to='/my-added-foods'>My Foods</Link>
+                            </li>
+                            <li>
+                                <Link to='/add-food' className='justify-between'>
+                                    Add Food
+                                </Link>
+                            </li>
+
+                            <li>
+                                <Link to='/my-orders'>My Orders</Link>
+                            </li>
+                            <li className='mt-2'>
+                                <button
+                                    onClick={handleSignOut}
+                                    className='bg-gray-200 block text-center'
+                                >
+                                    Logout
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                )}
+            </div>
+        </div>
+    )
 }
 
 export default Navbar

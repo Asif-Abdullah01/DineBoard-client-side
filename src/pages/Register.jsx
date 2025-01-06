@@ -3,25 +3,79 @@ import { Link, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.jpg'
 import lottieRegister from '../assets/register.json'
 import Lottie from 'lottie-react'
+import { toast } from 'react-toastify'
+import { useContext, useState } from 'react'
+import AuthContext from '../context/AuthContext'
 
-const Registration = () => {
+const Register = () => {
     const navigate = useNavigate()
-  
+    const { createUser, signInWithGoogle, updateUserProfile } = useContext(AuthContext)
 
     const handleSignUp = async e => {
         e.preventDefault()
-        const form = e.target
+        const form = e.target;
         const email = form.email.value
         const name = form.name.value
         const photo = form.photo.value
         const pass = form.password.value
-        console.log({ email, pass, name, photo })
-       
+        // console.log({ email, pass, name, photo })
+
+
+        if (!email || !name || !photo || !pass) {
+            setErrorMessage("All fields are required!");
+            return;
+        }
+
+
+        if (!/^.{6,}$/.test(pass)) {
+            toast.error('Password length must be at least 6 character.')
+            return;
+        }
+
+        if (!/[A-Z]/.test(pass)) {
+            toast.error('Password must have an Uppercase letter in the password')
+            return;
+        }
+
+
+        if (!/[a-z]/.test(pass)) {
+            toast.error('Password must have a Lowercase letter in the password')
+            return;
+        }
+
+        //create user with email pass by firebase
+        createUser(email, pass)
+            .then(result => {
+                toast.success('Successfully Registered');
+
+                updateUserProfile(name, photo)
+                    .then(() => {
+                        setUser({ ...result.user, photoURL: photo, displayName: name });
+                    })
+                    .catch((error) => {
+                        console.error("Error updating user profile:", error);
+                    });
+
+                    navigate('/');
+                
+
+            })
+            .catch(error => {
+                toast.error(error.message);
+            })
+
     }
 
     // Google Signin
     const handleGoogleSignIn = () => {
-
+        signInWithGoogle()
+            .then(res => {
+                toast.success('Successfully Registered');
+                navigate('/')
+            })
+            .then(err => {
+                toast.error(err.message);
+            })
     }
 
     return (
@@ -165,7 +219,7 @@ const Registration = () => {
                     </div>
                 </div>
                 <div
-                    className='flex flex-col justify-center items-center'
+                    className='hidden bg-cover bg-center lg:w-1/2 lg:flex flex-col justify-center items-center'
                 >
                     <Lottie animationData={lottieRegister} loop={true}></Lottie>
                 </div>
@@ -174,4 +228,4 @@ const Registration = () => {
     )
 }
 
-export default Registration
+export default Register;
