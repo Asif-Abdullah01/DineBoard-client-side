@@ -1,11 +1,16 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 const MainLayout = () => {
     return (
-        <div className='max-w-7xl mx-auto'>
+        <>
+        <Navbar></Navbar>
+        <div className='max-w-[1400px] mx-auto'>
             <Outlet></Outlet>
         </div>
+
+        </>
     );
 };
 
