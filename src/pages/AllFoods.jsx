@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 const AllFoods = () => {
@@ -6,8 +7,16 @@ const AllFoods = () => {
 
 
     useEffect(()=> {
-        
-    })
+
+        const fetchAllFoods = async () => {
+            const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/foods`);
+            setFoods(data)
+        }
+
+        fetchAllFoods();
+    },[])
+
+    console.log(foods);
 
     return (
         <div>
