@@ -2,7 +2,7 @@ import logo from '../assets/logo.jpg'
 const Footer = () => {
     return (
         <footer className="footer bg-base-200 text-base-content p-10">
-            <aside>
+            <aside className='md:ml-12 lg:ml-20'>
                 <img className='w-24 h-24 rounded-xl' src={logo} alt="" />
                 <p className='font-bold'>
                     DineBoard Ltd.
