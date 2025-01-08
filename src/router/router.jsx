@@ -12,6 +12,8 @@ import AddFood from "../pages/AddFood";
 import MyOrders from "../pages/MyOrders";
 import PrivateRoute from "./PrivateRoute";
 import ErrorElement from "../components/ErrorElement";
+import FoodDetails from "../pages/FoodDetails";
+import Purchase from "../pages/Purchase";
 
 const router = createBrowserRouter([
     {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
             {
                 path: '/foods',
                 element: <AllFoods></AllFoods>
+            },
+            {
+                path: '/foods/:id',
+                element: <FoodDetails></FoodDetails>
+            },
+            {
+                path: '/foods/purchase/:id',
+                element: <Purchase></Purchase>
             },
             {
                 path: '/gallery',
