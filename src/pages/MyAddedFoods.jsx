@@ -17,7 +17,7 @@ const MyAddedFoods = () => {
         const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/food/${user?.email}`);
         setFoods(data)
     }
-
+ 
 
     console.log(foods);
 
