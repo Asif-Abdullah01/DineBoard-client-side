@@ -36,7 +36,7 @@ const UpdateFood = () => {
             description,
         }
 
-       
+        
 
         try {
             
