@@ -6,6 +6,9 @@ const FoodCard = ({ food }) => {
     return (
 
         <div className='w-full max-w-sm px-4 py-3 bg-white rounded-md shadow-md hover:scale-[1.05] transition-all'>
+            <div>
+                <img className='w-full h-48 object-cover rounded-t-xl' src={photo} alt="" />
+            </div>
             <div className='flex items-center justify-between'>
 
             <h1 className='mt-2 text-lg font-semibold text-gray-800 '>

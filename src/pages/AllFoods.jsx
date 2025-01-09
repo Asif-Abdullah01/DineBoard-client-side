@@ -17,7 +17,7 @@ const AllFoods = () => {
         fetchAllFoods();
     },[])
 
-    console.log(foods);
+    // console.log(foods);
 
     return (
         <div>

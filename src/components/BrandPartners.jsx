@@ -29,7 +29,7 @@ const BrandPartners = () => {
 
     return (
         <>
-        <h2 className='text-center text-3xl font-bold mt-4'>Our Supporters</h2>
+        <h2 className='text-center text-3xl font-bold my-4'>Our Supporters</h2>
  
         <div className="relative">
             <Swiper
