@@ -10,12 +10,12 @@ const AllFoods = () => {
     useEffect(()=> {
 
         const fetchAllFoods = async () => {
-            const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/foods`);
+            const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/all-foods?search=${search}`);
             setFoods(data)
         }
 
         fetchAllFoods();
-    },[])
+    },[search])
 
     // console.log(foods);
 
@@ -28,8 +28,8 @@ const AllFoods = () => {
                         className="w-full px-4 py-2 text-gray-700 placeholder-gray-500 bg-white border-none outline-none focus:ring-0 focus:placeholder-transparent"
                         type="text"
                         name="search"
-                        onChange={(e) => setSearch(e.target.value)}
                         value={search}
+                        onChange={(e) => setSearch(e.target.value)}
                         placeholder="Enter Job Title"
                         aria-label="Enter Job Title"
                     />
