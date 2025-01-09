@@ -19,7 +19,7 @@ const MyAddedFoods = () => {
     }
  
 
-    console.log(foods);
+    // console.log(foods);
 
     return (
         <div>

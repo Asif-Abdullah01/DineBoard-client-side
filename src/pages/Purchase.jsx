@@ -31,7 +31,7 @@ const Purchase = () => {
     console.log(food);
 
 
-    const { name, price ,quantity,addBy} = food || {};
+    const { name, price ,quantity,addBy,photo,category,foodOrigin,description} = food || {};
 
     const handlePurchase = async e => {
         e.preventDefault();
@@ -53,8 +53,13 @@ const Purchase = () => {
         // }
         const purchasedFood = {
             name,
+            photo,
+            category,
+            email:userEmail,
             price,
             quantity,
+            foodOrigin,
+            description,
             buyingDate: new Date(buyingDate)
         }
 
@@ -111,7 +116,7 @@ const Purchase = () => {
                             <span className="label-text">Quantity</span>
                         </label>
                         <label className="input-group">
-                            <input type="number" name='quantity' placeholder="Quantity" className="input input-bordered w-full" />
+                            <input type="number" name='quantity' placeholder="Quantity" className="input input-bordered w-full" required/>
                         </label>
                     </div>
 
