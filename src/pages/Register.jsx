@@ -22,7 +22,7 @@ const Register = () => {
 
 
         if (!email || !name || !photo || !pass) {
-            setErrorMessage("All fields are required!");
+            toast.error("All fields are required!");
             return;
         }
 

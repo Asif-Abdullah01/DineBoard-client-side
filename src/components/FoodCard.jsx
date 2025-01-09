@@ -29,10 +29,10 @@ const FoodCard = ({ food }) => {
 
                 <div className='flex justify-between'>
                 <p className='mt-2 text-sm font-bold text-gray-600 '>
-                    Price: ${price}
+                    Price: {price} BDT.
                 </p>
                 <p className='mt-2 text-sm font-bold text-gray-600 '>
-                FoodOrigin: ${foodOrigin}
+                Food origin: {foodOrigin}
                 </p>
                     
                 </div>

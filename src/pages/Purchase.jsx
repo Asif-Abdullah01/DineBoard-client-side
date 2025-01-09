@@ -31,7 +31,7 @@ const Purchase = () => {
     console.log(food);
 
 
-    const { name, price ,quantity,addBy,photo,category,foodOrigin,description} = food || {};
+    const { _id, name, price ,quantity,addBy,photo,category,foodOrigin,description} = food || {};
 
     const handlePurchase = async e => {
         e.preventDefault();
@@ -47,10 +47,14 @@ const Purchase = () => {
             toast.error('The ordered quantity exceeds the available stock')
             return;
         }
-        // else if(addBy.email===userEmail){
-        //     toast.error('You can not order your own added foods')
-        //     return;
-        // }
+        else if(orderedQuantity<0){
+            toast.error('Invalid Quantity given!')
+            return;
+        }
+        else if(addBy.email===userEmail){
+            toast.error('You can not order your own added foods')
+            return;
+        }
         const purchasedFood = {
             name,
             photo,
@@ -60,6 +64,7 @@ const Purchase = () => {
             quantity,
             foodOrigin,
             description,
+            foodId: _id,
             buyingDate: new Date(buyingDate)
         }
 
