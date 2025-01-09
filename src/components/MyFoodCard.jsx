@@ -18,9 +18,12 @@ const MyFoodCard = ({ food }) => {
                 <p>Category: {category}</p>
                 {/* <p title={description}>{description.slice(0, 100)}...</p> */}
                 <div className="card-actions">
-
-                    <button className="btn bg-green-600 hover:bg-green-800 p-4 text-white font-bold">Update Now</button>
-
+                    <Link
+                        to={`/update/${_id}`}
+                        className='text-gray-500 transition-colors duration-200   hover:text-yellow-500 focus:outline-none'
+                    >
+                        <button className="btn bg-green-600 hover:bg-green-800 p-4 text-white font-bold">Update Now</button>
+                    </Link>
                 </div>
             </div>
         </div>

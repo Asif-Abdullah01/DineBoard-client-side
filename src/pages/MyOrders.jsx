@@ -26,7 +26,7 @@ const MyOrders = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-8'>
                 {
-                    foods.map(food => <MyOrderedCard key={food._id} food={food}></MyOrderedCard>)
+                    foods.map(food => <MyOrderedCard fetchAllFoods={fetchAllFoods} key={food._id} food={food}></MyOrderedCard>)
                 }
             </div>
         </div>

@@ -1,11 +1,27 @@
+import axios from 'axios';
 import React from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 
 
-const MyOrderedCard = ({food}) => {
+const MyOrderedCard = ({food,fetchAllFoods}) => {
     const { _id, name, category, price, photo,buyingDate } = food;
     const dateFromDB = new Date(buyingDate);
     const formattedDate = dateFromDB.toISOString().split('T')[0];
+
+    const handleDelete = async id => {
+        try {
+            const {data} = await axios.delete(`${import.meta.env.VITE_API_URL}/my-food/${id}`);
+            console.log(data)
+            toast.success('Order Removed Successfully')
+      
+            //refresh ui
+            fetchAllFoods()
+          } catch (err) {
+            toast.error(err.message)
+          }
+    }
+
     return (
         <div className="card bg-base-100 shadow-xl hover:scale-105 transition-all">
             <figure>
@@ -23,7 +39,7 @@ const MyOrderedCard = ({food}) => {
                 {/* <p title={description}>{description.slice(0, 100)}...</p> */}
                 <div className="card-actions">
 
-                    <button className="btn bg-green-600 hover:bg-green-800 p-4 text-white font-bold">Delete</button>
+                    <button onClick={() => handleDelete(_id)} className="btn bg-green-600 hover:bg-green-800 p-4 text-white font-bold">Delete</button>
 
                 </div>
             </div>

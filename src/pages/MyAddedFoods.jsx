@@ -27,7 +27,7 @@ const MyAddedFoods = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-8'>
                 {
-                    foods.map(food => <MyFoodCard food={food}></MyFoodCard>)
+                    foods.map(food => <MyFoodCard key={food._id} food={food}></MyFoodCard>)
                 }
             </div>
         </div>

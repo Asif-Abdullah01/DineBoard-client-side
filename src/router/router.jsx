@@ -14,13 +14,14 @@ import PrivateRoute from "./PrivateRoute";
 import ErrorElement from "../components/ErrorElement";
 import FoodDetails from "../pages/FoodDetails";
 import Purchase from "../pages/Purchase";
+import UpdateFood from "../components/UpdateFood";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
         errorElement: <ErrorElement></ErrorElement>,
-        children:[
+        children: [
             {
                 path: '/',
                 element: <Home></Home>
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
             {
                 path: '/foods/:id',
                 element: <FoodDetails></FoodDetails>
+            },
+            {
+                path: '/update/:id',
+                element: <UpdateFood></UpdateFood>,
+                loader: ({params}) => fetch(`${import.meta.env.VITE_API_URL}/foods/${params.id}`)
             },
             {
                 path: '/foods/purchase/:id',
