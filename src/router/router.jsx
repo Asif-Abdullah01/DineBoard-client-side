@@ -42,7 +42,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/foods/purchase/:id',
-                element: <Purchase></Purchase>
+                element: <PrivateRoute><Purchase></Purchase></PrivateRoute>
             },
             {
                 path: '/gallery',

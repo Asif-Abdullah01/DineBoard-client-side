@@ -3,11 +3,17 @@ import Banner from '../components/Banner';
 import WhyUs from '../components/WhyUs';
 import BrandPartners from '../components/BrandPartners';
 import { Link, useLoaderData } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
     const foods = useLoaderData();
+
     return (
+
         <div>
+            <Helmet>
+                <title>DineBoard</title>
+            </Helmet>
             <Banner></Banner>
 
             {/* card section start */}
@@ -75,7 +81,7 @@ const Home = () => {
                 <Link to={'/foods'}>
                     <button className="btn btn-warning">All Foods</button>
                 </Link>
-                </div>
+            </div>
 
             {/* card section end */}
 

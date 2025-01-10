@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 import toast from 'react-hot-toast';
 
@@ -12,12 +12,12 @@ const Purchase = () => {
 
     const [buyingDate, setBuyingDate] = useState("");
 
-
+    const navigate = useNavigate();
 
     useEffect(() => {
 
         const fetchAllFoods = async () => {
-            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/foods/purchase/${id}`);
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/foods/purchase/${id}?email=${user?.email}`,{withCredentials:true});
             setFood(data)
         }
 
@@ -62,6 +62,7 @@ const Purchase = () => {
             email:userEmail,
             price,
             quantity,
+            orderedQuantity,
             foodOrigin,
             description,
             foodId: _id,
@@ -77,17 +78,17 @@ const Purchase = () => {
           //show test and navigate
           toast.success('Order placed successfully!');
         //   console.log(data);
-        //   navigate('/my-orders')
+          navigate('/my-orders')
         }
         catch(err){
-          // console.log(err);
-          toast.error(err?.response?.data); //message from server side
+        //   console.log(err);
+          toast.error(err.message); //message from server side
         }
 
     }
 
     return (
-        <div>
+        <div className='w-11/12 mx-auto'>
             <form onSubmit={handlePurchase}>
 
                 <div className='md:flex mb-6'>
@@ -175,7 +176,9 @@ const Purchase = () => {
 
 
 
-                <input className='btn btn-block bg-amber-600 text-lg' type="submit" value="Purchase" />
+                <input className={`btn btn-block bg-amber-600 text-lg ${quantity === 0 || addBy?.email === user?.email ? 'cursor-not-allowed opacity-50' : ''}`} type="submit" 
+                disabled={quantity === 0 || addBy?.email === user?.email}
+                value="Purchase" />
 
             </form>
         </div>

@@ -36,6 +36,10 @@ const UpdateFood = () => {
             description,
         }
 
+        if(user?.email !== email){
+            toast.error('You do not have access to update dish')
+        }
+
         
 
         try {

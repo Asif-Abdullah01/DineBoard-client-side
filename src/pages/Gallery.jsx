@@ -1,4 +1,4 @@
-// src/GalleryPage.jsx
+
 import React, { useState } from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
@@ -14,12 +14,13 @@ import f9 from '../assets/food9.jpg'
 import f10 from '../assets/food10.jpg'
 import f11 from '../assets/food11.jpg'
 import f12 from '../assets/food12.jpg'
+import { Helmet } from 'react-helmet';
 const GalleryPage = () => {
     const [open, setOpen] = useState(false);
     const [currentImage, setCurrentImage] = useState(0);
 
     const images = [
-        // Add URLs or paths to your static images here
+       
         { src: f1 },
         { src: f2 },
         { src: f3 },
@@ -41,28 +42,35 @@ const GalleryPage = () => {
     };
 
     return (
-        <div style={{ textAlign: 'center', padding: '20px' }}>
-            <h1 className='text-3xl font-bold my-2'>Foods Gallery</h1>
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-                {images.map((image, index) => (
-                    <img
-                        key={index}
-                        src={image.src}
-                        alt={`Gallery Image ${index + 1}`}
-                        className="w-60 m-2 cursor-pointer rounded-md"
-                        onClick={() => handleOpen(index)}
+        <>
+            <Helmet>
+                <title>DineBoard | Gallery</title>
+            </Helmet>
+
+            <div style={{ textAlign: 'center', padding: '20px' }}>
+                <h1 className='text-3xl font-bold my-2'>Foods Gallery</h1>
+                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+                    {images.map((image, index) => (
+                        <img
+                            key={index}
+                            src={image.src}
+                            alt={`Gallery Image ${index + 1}`}
+                            className="w-60 m-2 cursor-pointer rounded-md"
+                            onClick={() => handleOpen(index)}
+                        />
+                    ))}
+                </div>
+                {open && (
+                    <Lightbox
+                        open={open}
+                        index={currentImage}
+                        close={() => setOpen(false)}
+                        slides={images}
                     />
-                ))}
+                )}
             </div>
-            {open && (
-                <Lightbox
-                    open={open}
-                    index={currentImage}
-                    close={() => setOpen(false)}
-                    slides={images}
-                />
-            )}
-        </div>
+        </>
+
     );
 };
 

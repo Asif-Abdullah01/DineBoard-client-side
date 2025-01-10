@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import FoodCard from '../components/FoodCard';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const AllFoods = () => {
     const [foods, setFoods] = useState([]);
@@ -10,8 +11,10 @@ const AllFoods = () => {
     useEffect(()=> {
 
         const fetchAllFoods = async () => {
+      
             const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/all-foods?search=${search}`);
             setFoods(data)
+      
         }
 
         fetchAllFoods();
@@ -30,10 +33,10 @@ const AllFoods = () => {
                         name="search"
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
-                        placeholder="Enter Job Title"
-                        aria-label="Enter Job Title"
+                        placeholder="Search for food"
+                        aria-label="Search for food"
                     />
-                    <button className="px-6 py-2 text-sm font-medium text-white uppercase transition-colors duration-300 transform bg-yellow-600 hover:bg-yellow-500 focus:bg-yellow-700 focus:outline-none">
+                    <button type='button' className="px-6 py-2 text-sm font-medium text-white uppercase transition-colors duration-300 transform bg-yellow-600 hover:bg-yellow-500 focus:bg-yellow-700 focus:outline-none">
                         Search
                     </button>
                 </div>

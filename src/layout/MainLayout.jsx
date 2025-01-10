@@ -13,7 +13,7 @@ const MainLayout = () => {
          <ToastContainer />
          <Toaster />
         <Navbar></Navbar>
-        <div className='max-w-[1400px] mx-auto'>
+        <div className='max-w-[1400px] mx-auto overflow-hidden'>
             <Outlet></Outlet>
         </div>
         <Footer></Footer>

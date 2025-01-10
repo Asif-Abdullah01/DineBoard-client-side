@@ -3,6 +3,7 @@ import logo from '../assets/logo.jpg'
 import { Link, NavLink } from 'react-router-dom'
 import AuthContext from '../context/AuthContext';
 import { toast } from 'react-toastify';
+import ThemeToggle from './ThemeToggle';
 
 
 const Navbar = () => {
@@ -18,15 +19,16 @@ const Navbar = () => {
             })
     }
     return (
-        <div className='navbar bg-base-100 shadow-sm container px-4 mx-auto'>
+        <div className='navbar bg-yellow-100 shadow-sm container px-4 mx-auto'>
             <div className='flex-1'>
                 <Link to='/' className='flex gap-2 items-center'>
-                    <img className='w-auto h-16' src={logo} alt='' />
+                    <img className='w-auto h-16 rounded-xl' src={logo} alt='' />
                     <span className='font-bold text-xl'>DineBoard</span>
                 </Link>
             </div>
             <div className='flex-none'>
-                <ul className='menu menu-horizontal px-1'>
+                <ul className='menu md:menu-horizontal px-1 space-y-1 md:space-y-0'>
+                    <li className="mr-2"> <ThemeToggle /> </li>
                     <li>
                         <NavLink className={'font-bold'} to='/'>Home</NavLink>
                     </li>
@@ -38,9 +40,9 @@ const Navbar = () => {
                     </li>
 
                     {
-                        user ? <><button onClick={handleSignOut} className="btn">Logout</button></> : <>
+                        user ? <><button onClick={handleSignOut} className="py-2 px-3 bg-yellow-400 rounded-lg font-bold">Logout</button></> : <>
                             <Link to={'/login'}>
-                                <button className="btn">Login</button>
+                                <button className="py-2 px-3 bg-yellow-400 rounded-lg font-bold">Login</button>
                             </Link>
                         </>
                     }
@@ -77,14 +79,7 @@ const Navbar = () => {
                             <li>
                                 <Link to='/my-orders'>My Orders</Link>
                             </li>
-                            <li className='mt-2'>
-                                <button
-                                    onClick={handleSignOut}
-                                    className='bg-gray-200 block text-center'
-                                >
-                                    Logout
-                                </button>
-                            </li>
+
                         </ul>
                     </div>
                 )}

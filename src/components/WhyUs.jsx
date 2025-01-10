@@ -14,7 +14,7 @@ const WhyUs = () => {
             <h2 className="text-3xl font-bold text-center text-orange-800 mb-6">Why Choose Us</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                 {/* Fast Delivery */}
-                <div className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md">
+                <div className="flex flex-col items-center p-4 rounded-lg shadow-md bg-yellow-50">
                     <FaShippingFast size={40} className="text-green-500 mb-4" />
                     <h3 className="text-xl font-semibold mb-2">Fast Delivery</h3>
                     <p className="text-center text-gray-600">
@@ -23,7 +23,7 @@ const WhyUs = () => {
                 </div>
 
                 {/* Best Quality */}
-                <div className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md">
+                <div className="flex flex-col items-center  p-4 rounded-lg shadow-md bg-yellow-50">
                     <FaHandsWash size={40} className="text-yellow-500 mb-4"  />
                     <h3 className="text-xl font-semibold mb-2 text-center">Maintain Hygiene</h3>
                     <p className="text-center text-gray-600">
@@ -32,7 +32,7 @@ const WhyUs = () => {
                 </div>
 
                 {/* Affordable Prices */}
-                <div className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md">
+                <div className="flex flex-col items-center  p-4 rounded-lg shadow-md bg-yellow-50">
                     <FaTags size={40} className="text-red-500 mb-4" />
                     <h3 className="text-xl font-semibold mb-2 text-center">Affordable Prices</h3>
                     <p className="text-center text-gray-600">
@@ -41,7 +41,7 @@ const WhyUs = () => {
                 </div>
 
                 {/* 24/7 Support */}
-                <div className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md">
+                <div className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md bg-yellow-50">
                     <FaHeadset size={40} className="text-blue-500 mb-4" />
                     <h3 className="text-xl font-semibold mb-2">24/7 Open</h3>
                     <p className="text-center text-gray-600">

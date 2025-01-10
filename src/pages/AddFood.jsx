@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 const AddFood = () => {
 
@@ -38,8 +39,8 @@ const AddFood = () => {
         // console.log(newFood);
 
         try {
-            
-            await axios.post(`${import.meta.env.VITE_API_URL}/add-food`, newFood);
+
+            await axios.post(`${import.meta.env.VITE_API_URL}/add-food`, {...newFood,email},{withCredentials:true});
 
             form.reset();
 
@@ -54,8 +55,12 @@ const AddFood = () => {
     }
 
 
+
     return (
-        <div className='bg-[#F4F3F0] p-24'>
+        <div className='bg-[#f0fec0] p-24'>
+            <Helmet>
+                <title>DineBoard | Add Food</title>
+            </Helmet>
             <h2 className='text-3xl font-extrabold'>Add a Food</h2>
             <form onSubmit={handleAddFood}>
 
@@ -90,7 +95,7 @@ const AddFood = () => {
                             <span className="label-text">Quantity</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name='quantity' placeholder="Available quantity" className="input input-bordered w-full" />
+                            <input type="number" name='quantity' placeholder="Available quantity" className="input input-bordered w-full" />
                         </label>
                     </div>
 

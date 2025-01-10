@@ -11,19 +11,25 @@ const Login = () => {
     const { signInUser, signInWithGoogle } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
-    console.log('login page:',location);
+    console.log('login page:', location);
     const from = location?.state || '/';
 
     // Google Signin
-    const handleGoogleSignIn = () => {
-        signInWithGoogle()
-            .then(res => {
-                toast.success('Successfully Registered');
-                navigate(from)
-            })
-            .then(err => {
-                toast.error(err.message);
-            })
+
+
+    const handleGoogleSignIn = async () => {
+
+        try {
+            await signInWithGoogle()
+      
+
+
+            toast.success('Signin Successful')
+            navigate(from || '/')
+        } catch (err) {
+            console.log(err)
+            toast.error(err?.message)
+        }
     }
 
     // Email Password Signin
@@ -50,14 +56,14 @@ const Login = () => {
             return;
         }
 
-        signInUser(email,pass)
-        .then(result => {
-            toast.success('Successfully Logged in');
-            navigate(from);
-        })
-        .catch(error => {
-            toast.error(error.message);
-        }) 
+        signInUser(email, pass)
+            .then(result => {
+                toast.success('Successfully Logged in');
+                navigate(from);
+            })
+            .catch(error => {
+                toast.error(error.message);
+            })
 
 
 
