@@ -93,7 +93,7 @@ const Home = () => {
             </div>
 
 
-            <div className="bg-gradient-to-r from-yellow-100 via-white to-yellow-100 py-12 px-4 sm:px-6 lg:px-8 rounded-lg shadow-md max-w-3xl mx-auto mt-16 text-center">
+            <div className="bg-gradient-to-r from-yellow-200 via-[#f7f4edb1] to-yellow-100 py-12 px-4 sm:px-6 lg:px-8 rounded-lg shadow-md mx-auto mt-16 text-center">
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-800 mb-4">
                     Stay in the Loop!
                 </h2>

@@ -16,7 +16,7 @@ const ThemeToggle = () => {
     <button
       onClick={toggleTheme}
       className="px-2 py-1 rounded-md font-semibold transition duration-300
-                 bg-yellow-400 text-black hover:opacity-90 text-lg"
+                 bg-yellow-600 text-black hover:opacity-90 text-lg"
     >
       {theme === 'light' ? '🌙' : '☀️'}
     </button>
