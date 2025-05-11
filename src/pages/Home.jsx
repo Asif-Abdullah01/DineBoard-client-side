@@ -24,7 +24,7 @@ const Home = () => {
             {
                 foods.length !== 0 && (
                     <div className='text-center my-8'>
-                        <h2 className='text-3xl text-yellow-800 font-bold'>Most Demanded Items</h2>
+                        <h2 className='text-3xl text-yellow-600 font-bold'>Most Demanded Items</h2>
                         <p className='text-yellow-700 text-base mt-2'>We provide best food with proper hygiene</p>
                     </div>
                 )
@@ -75,7 +75,7 @@ const Home = () => {
             {/* View All Button */}
             <div className='flex justify-center mb-12'>
                 <Link to={'/foods'}>
-                    <button className="border border-yellow-600 text-yellow-700 hover:bg-yellow-200 font-semibold py-2 px-4 rounded transition duration-300">
+                    <button className="border border-yellow-600 text-yellow-600 hover:bg-yellow-200 font-semibold py-2 px-4 rounded transition duration-300">
                         All Items
                     </button>
                 </Link>

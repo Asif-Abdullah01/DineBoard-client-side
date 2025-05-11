@@ -25,7 +25,7 @@ const MyAddedFoods = () => {
             <Helmet>
                 <title>DineBoard | My Foods</title>
             </Helmet>
-            <h2 className="text-3xl font-bold text-center mt-6">My Foods ({foods.length})</h2>
+            <h2 className="text-3xl font-bold text-center mt-6 text-yellow-600">My Foods ({foods.length})</h2>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 py-8'>
                 {

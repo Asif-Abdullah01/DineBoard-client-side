@@ -15,22 +15,22 @@ const WhyUs = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                 {[
                     {
-                        icon: <FaShippingFast size={40} className="text-green-500" />,
+                        icon: <FaShippingFast size={40} className="text-green-500 w-full mx-auto" />,
                         title: "Fast Delivery",
                         desc: "Super-fast delivery so your cravings never have to wait.",
                     },
                     {
-                        icon: <FaHandsWash size={40} className="text-yellow-500" />,
+                        icon: <FaHandsWash size={40} className="text-yellow-500 w-full mx-auto" />,
                         title: "Maintain Hygiene",
                         desc: "Strict hygiene protocols ensure safe and delightful meals.",
                     },
                     {
-                        icon: <FaTags size={40} className="text-red-500" />,
+                        icon: <FaTags size={40} className="text-red-500 w-full mx-auto" />,
                         title: "Affordable Prices",
                         desc: "Quality meals at pocket-friendly prices every day.",
                     },
                     {
-                        icon: <FaHeadset size={40} className="text-blue-500" />,
+                        icon: <FaHeadset size={40} className="text-blue-500 w-full mx-auto" />,
                         title: "24/7 Service",
                         desc: "We’re open day and night—order anytime!",
                     },

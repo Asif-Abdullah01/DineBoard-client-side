@@ -24,7 +24,7 @@ const AllFoods = () => {
 
     return (
         <div>
-            <h2 className='text-center font-bold text-4xl my-4'>DineBoard</h2>
+            <h2 className='text-center font-bold text-4xl my-4 text-yellow-600'>DineBoard</h2>
             <div className="flex items-center justify-center p-4">
                 <div className="flex w-full max-w-lg overflow-hidden border rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
                     <input

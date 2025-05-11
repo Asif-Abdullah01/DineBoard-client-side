@@ -29,7 +29,7 @@ const BrandPartners = () => {
 
     return (
         <>
-        <h2 className='text-center text-4xl text-orange-800 font-bold'>Our Supporters</h2>
+        <h2 className='text-center text-4xl text-yellow-600 font-bold mb-8'>Our Supporters</h2>
  
         <div className="relative w-full mx-auto px-4 py-8 bg-white shadow-lg rounded-lg overflow-hidden">
             <Swiper

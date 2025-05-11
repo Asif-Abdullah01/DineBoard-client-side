@@ -48,7 +48,8 @@ const GalleryPage = () => {
             </Helmet>
 
             <div style={{ textAlign: 'center', padding: '20px' }}>
-                <h1 className='text-3xl font-bold my-2 mb-4'>Foods Gallery</h1>
+                <h1 className='text-3xl font-bold my-2 mb-2 text-yellow-600'>Foods Gallery</h1>
+                <p className='text-yellow-600'>Take a glance at the kingdom of flavors in just one look.</p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
                     {images.map((image, index) => (
                         <img
