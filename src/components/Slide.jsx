@@ -20,7 +20,7 @@ const Slide = ({ image, text }) => {
             className='w-full px-5 py-4 mt-4 text-sm text-black font-bold capitalize transition-colors duration-300 transform bg-yellow-500 rounded-md lg:w-auto hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400'
           >
             Browse All Foods
-          </Link>
+          </Link> 
         </div>
       </div>
     </div>
