@@ -29,16 +29,16 @@ const BrandPartners = () => {
 
     return (
         <>
-        <h2 className='text-center text-3xl font-bold my-4'>Our Supporters</h2>
+        <h2 className='text-center text-4xl text-orange-800 font-bold'>Our Supporters</h2>
  
-        <div className="relative">
+        <div className="relative w-full mx-auto px-4 py-8 bg-white shadow-lg rounded-lg overflow-hidden">
             <Swiper
                 modules={[Navigation, Pagination]} // Adding Navigation and Pagination modules
-                spaceBetween={50} // Space between slides
-                slidesPerView={5} // Number of slides visible at once
+                // spaceBetween={50} // Space between slides
+                slidesPerView={3} // Number of slides visible at once
                 loop={true} // Looping the slides
                 autoplay={{ delay: 2500, disableOnInteraction: false }} // Auto slide
-                pagination={{ clickable: true }} // Pagination at the bottom (clickable)
+                // pagination={{ clickable: true }} // Pagination at the bottom (clickable)
                 navigation={{
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
@@ -51,7 +51,7 @@ const BrandPartners = () => {
             >
                 {partners.map((partner, index) => (
                     <SwiperSlide key={index}>
-                        <img src={partner.logo} alt={partner.name} className="w-40 h-40 object-contain mx-auto" />
+                        <img src={partner.logo} alt={partner.name} className="w-32 h-32 object-contain mx-auto" />
                     </SwiperSlide>
                 ))}
 

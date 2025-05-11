@@ -39,7 +39,7 @@ const MyOrderedCard = ({food,fetchAllFoods}) => {
                 {/* <p title={description}>{description.slice(0, 100)}...</p> */}
                 <div className="card-actions">
 
-                    <button onClick={() => handleDelete(_id)} className="btn bg-green-600 hover:bg-green-800 p-4 text-white font-bold">Delete</button>
+                    <button onClick={() => handleDelete(_id)} className="btn bg-red-600 hover:bg-red-800 p-4 text-white font-bold">Delete</button>
 
                 </div>
             </div>

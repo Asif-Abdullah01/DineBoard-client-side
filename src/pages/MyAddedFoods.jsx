@@ -6,32 +6,30 @@ import { Helmet } from 'react-helmet';
 
 const MyAddedFoods = () => {
 
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
 
     const [foods, setFoods] = useState([]);
 
     useEffect(() => {
         fetchAllFoods();
-    }, [user])
+    }, [user]);
 
     const fetchAllFoods = async () => {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/food/${user?.email}`,{withCredentials:true});
-        setFoods(data)
-    }
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/food/${user?.email}`, { withCredentials: true });
+        setFoods(data);
+    };
 
-
-    // console.log(foods);
 
     return (
-        <div>
+        <div className="px-4 md:px-8 lg:px-16">
             <Helmet>
                 <title>DineBoard | My Foods</title>
             </Helmet>
-            <h2 className="text-3xl font-bold text-center my-2">My Foods({foods.length})</h2>
+            <h2 className="text-3xl font-bold text-center mt-6">My Foods ({foods.length})</h2>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-8'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 py-8'>
                 {
-                    foods.map(food => <MyFoodCard key={food._id} food={food}></MyFoodCard>)
+                    foods.map(food => <MyFoodCard key={food._id} food={food} />)
                 }
             </div>
         </div>

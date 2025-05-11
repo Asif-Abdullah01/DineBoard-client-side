@@ -14,7 +14,7 @@ const MyFoodCard = ({ food }) => {
                 <h2 className="card-title">
                     {name}
                 </h2>
-                <p>Cost: {price}</p>
+                <p>Price: {price} BDT</p>
                 <p>Category: {category}</p>
                 {/* <p title={description}>{description.slice(0, 100)}...</p> */}
                 <div className="card-actions">
@@ -24,6 +24,7 @@ const MyFoodCard = ({ food }) => {
                     >
                         <button className="btn bg-green-600 hover:bg-green-800 p-4 text-white font-bold">Update Now</button>
                     </Link>
+                    
                 </div>
             </div>
         </div>

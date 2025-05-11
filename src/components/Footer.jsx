@@ -1,44 +1,36 @@
 import React from 'react';
 import logo from '../assets/logo.jpg';
+import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <footer className="footer bg-yellow-100  text-base-content p-10 flex flex-col md:flex-row flex-wrap gap-8 justify-center lg:justify-between items-center">
-            {/* Logo Section */}
-            <aside className="flex flex-col items-center lg:items-start lg:ml-20 text-center lg:text-left">
-                <img className="w-24 h-24 rounded-xl mb-4" src={logo} alt="DineBoard Logo" />
-                <p className="font-bold">
-                    DineBoard Ltd.
-                    <br />
-                    Providing best foods since 2002
-                </p>
-            </aside>
+        <footer className="bg-yellow-100 text-base-content px-6 py-10 text-center flex flex-col items-center gap-4">
+            {/* Logo */}
+            <img src={logo} alt="DineBoard Logo" className="w-24 h-24 rounded-xl mb-2" />
 
-            {/* Services Section */}
-            <nav className="flex flex-col items-center lg:items-start">
-                <h6 className="footer-title text-lg font-semibold mb-3">Services</h6>
-                <a className="link link-hover hover:text-primary">Branding</a>
-                <a className="link link-hover hover:text-primary">Design</a>
-                <a className="link link-hover hover:text-primary">Marketing</a>
-                <a className="link link-hover hover:text-primary">Advertisement</a>
-            </nav>
+            {/* Contact Info */}
+            <div className="text-md text-gray-700">
+                <p>📞 +880 1606-074577</p>
+                <p>📍 123 Gulshan Avenue, Dhaka, Bangladesh</p>
+            </div>
 
-            {/* Company Section */}
-            <nav className="flex flex-col items-center lg:items-start">
-                <h6 className="footer-title text-lg font-semibold mb-3">Company</h6>
-                <a className="link link-hover hover:text-primary">About us</a>
-                <a className="link link-hover hover:text-primary">Contact</a>
-                <a className="link link-hover hover:text-primary">Foods</a>
-                <a className="link link-hover hover:text-primary">Press kit</a>
-            </nav>
+            {/* Social Media */}
+            <div className="flex gap-6 mt-3 text-xl text-gray-700">
+                <a href="https://www.facebook.com/asifabdullah01/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
+                    <FaFacebookF />
+                </a>
+                <a href="https://www.instagram.com/asif_abdullah01/#" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500">
+                    <FaInstagram />
+                </a>
+                <a href="https://www.youtube.com/@HidayahMedia01" target="_blank" rel="noopener noreferrer" className="hover:text-red-600">
+                    <FaYoutube />
+                </a>
+            </div>
 
-            {/* Legal Section */}
-            <nav className="flex flex-col items-center lg:items-start">
-                <h6 className="footer-title text-lg font-semibold mb-3">Legal</h6>
-                <a className="link link-hover hover:text-primary">Terms of use</a>
-                <a className="link link-hover hover:text-primary">Privacy policy</a>
-                <a className="link link-hover hover:text-primary">Cookie policy</a>
-            </nav>
+            {/* Copyright */}
+            <p className="text-sm text-gray-600 mt-4">
+                © {new Date().getFullYear()} DineBoard Ltd. All rights reserved.
+            </p>
         </footer>
     );
 };
