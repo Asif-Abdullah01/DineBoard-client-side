@@ -23,26 +23,26 @@ const Navbar = () => {
             <div className='flex-1'>
                 <Link to='/' className='flex gap-2 items-center'>
                     <img className='w-auto h-16 rounded-xl' src={logo} alt='' />
-                    <span className='font-bold text-xl'>DineBoard</span>
+                    <span className='font-bold text-xl text-black'>DineBoard</span>
                 </Link>
             </div>
             <div className='flex-none'>
                 <ul className='menu md:menu-horizontal px-1 space-y-1 md:space-y-0'>
                     <li className="mr-2"> <ThemeToggle /> </li>
                     <li>
-                        <NavLink className={'font-bold'} to='/'>Home</NavLink>
+                        <NavLink className={'font-bold text-black'} to='/'>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink className={'font-bold'} to='/foods'>All Foods</NavLink>
+                        <NavLink className={'font-bold text-black'} to='/foods'>All Foods</NavLink>
                     </li>
                     <li>
-                        <NavLink className={'font-bold'} to='/gallery'>Gallery</NavLink>
+                        <NavLink className={'font-bold text-black'} to='/gallery'>Gallery</NavLink>
                     </li>
 
                     {
-                        user ? <><button onClick={handleSignOut} className="py-2 px-3 bg-yellow-400 rounded-lg font-bold">Logout</button></> : <>
+                        user ? <><button onClick={handleSignOut} className="py-2 px-3 bg-yellow-400 rounded-lg font-bold text-black">Logout</button></> : <>
                             <Link to={'/login'}>
-                                <button className="py-2 px-3 bg-yellow-400 rounded-lg font-bold">Login</button>
+                                <button className="py-2 px-3 bg-yellow-400 rounded-lg font-bold text-black">Login</button>
                             </Link>
                         </>
                     }

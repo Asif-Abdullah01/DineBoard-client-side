@@ -15,10 +15,10 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="px-4 py-2 rounded-md font-semibold transition duration-300
-                 bg-yellow-700 text-white hover:opacity-90"
+      className="px-2 py-1 rounded-md font-semibold transition duration-300
+                 bg-yellow-400 text-black hover:opacity-90 text-lg"
     >
-      {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
+      {theme === 'light' ? '🌙' : '☀️'}
     </button>
   );
 };
